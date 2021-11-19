@@ -1,0 +1,47 @@
+﻿@model IEnumerable<UCP1_PAW_004_A.Models.Komik>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayName("Judul Komik")
+            </th>
+            <th>
+                @Html.DisplayName("Pengarang")
+            </th>
+            <th>
+                @Html.DisplayName("Penerbit")
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NamaKomik)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pengarang)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Penerbit)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.NoKomik"><i class="fas fa-marker fa-lg"></i></a> |
+                <a asp-action="Details" asp-route-id="@item.NoKomik"><i class="fas fa-list"></i></a> |
+                <a asp-action="Delete" asp-route-id="@item.NoKomik"><i class="fas fa-trash fa-lg"></i></a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
